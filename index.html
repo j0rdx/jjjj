@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Estudio MJ</title>
+  <title>Estudio MJ - Bienestar</title>
   
   <!-- Configuración PWA -->
   <link rel="manifest" href="manifest.json">
   <link rel="apple-touch-icon" href="icon-512.png">
   <meta name="theme-color" content="#e8f5e9">
   
-  <!-- Tipografía limpia y minimalista (Quicksand) -->
+  <!-- Tipografía limpia -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
@@ -29,11 +29,11 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      /* Tonos pastel: verde menta suave y amarillo sutil */
       background: linear-gradient(135deg, #e8f5e9, #fbe9e7, #fff9c4, #e8f5e9);
       background-size: 400% 400%;
       animation: gradienteCalmo 16s ease infinite;
-      overflow: hidden;
+      overflow-y: auto;
+      padding: 20px 0;
     }
 
     @keyframes gradienteCalmo {
@@ -49,7 +49,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: #e8f5e9; /* Color de fondo relajante inicial */
+      background-color: #e8f5e9;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -66,104 +66,231 @@
     }
 
     @keyframes entradaLogo {
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
+      to { opacity: 1; transform: scale(1); }
     }
 
-    /* Clase para desaparecer la Splash Screen */
     .fade-out {
       opacity: 0;
-      transform: translateY(-100vh); /* Se desliza hacia arriba elegantemente */
+      transform: translateY(-100vh);
       pointer-events: none;
     }
 
-    /* 2. EFECTO GLASSMORPHISM (TARJETA DE VIDRIO FLOTANTE) */
+    /* 2. EFECTO GLASSMORPHISM (TARJETA DE VIDRIO) */
     .app-container {
       width: 90%;
-      max-width: 400px;
-      padding: 40px 30px;
-      background: rgba(255, 255, 255, 0.35); /* Transparencia base */
-      backdrop-filter: blur(16px); /* Difumina el fondo (Efecto esmerilado) */
+      max-width: 440px;
+      padding: 30px 20px;
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      border-radius: 24px;
-      border: 1px solid rgba(255, 255, 255, 0.5); /* Borde brillante sutil */
-      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.05); /* Sombra muy suave */
+      border-radius: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.04);
       text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
       opacity: 0;
       transform: translateY(20px);
-      animation: aparecerContenido 0.6s 1.6s forwards ease-out; /* Aparece después de la Splash */
+      animation: aparecerContenido 0.6s 1.6s forwards ease-out;
     }
 
     @keyframes aparecerContenido {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Microinteracción: inclinación suave al presionar en celular */
-    .app-container:active {
-      transform: scale(0.98);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.03);
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .main-logo {
-      width: 160px;
-      height: 160px;
+      width: 100px;
+      height: 100px;
       object-fit: contain;
-      margin-bottom: 24px;
-      /* Animación sutil de respiración para el mándala */
+      margin-bottom: 15px;
       animation: pulsoMandala 6s ease-in-out infinite;
     }
 
     @keyframes pulsoMandala {
-      0%, 100% { transform: scale(1); filter: drop-shadow(0 4px 6px rgba(0,0,0,0.02)); }
-      50% { transform: scale(1.03); filter: drop-shadow(0 12px 20px rgba(0,0,0,0.06)); }
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.04); }
     }
 
     h1 {
       font-size: 24px;
-      color: #2e7d32; /* Verde bosque elegante */
+      color: #2e7d32;
       font-weight: 600;
-      letter-spacing: 1px;
-      margin-bottom: 10px;
+      margin-bottom: 5px;
     }
 
-    p {
-      font-size: 15px;
+    .subtitle {
+      font-size: 14px;
       color: #558b2f;
-      line-height: 1.5;
+      margin-bottom: 25px;
+    }
+
+    /* SECCIONES DE BIENESTAR INTERNAS */
+    .section-card {
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 20px;
+      text-align: left;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .section-card h2 {
+      font-size: 18px;
+      color: #2e7d32;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Animación de Respiración 4-7-8 */
+    .breathing-circle-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 15px 0 5px;
+    }
+
+    .b-circle {
+      width: 100px;
+      height: 100px;
+      background: #c8e6c9;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #2e7d32;
+      font-weight: 600;
+      font-size: 14px;
+      transition: transform 0.1s linear;
+      box-shadow: 0 0 15px rgba(200, 230, 201, 0.5);
+    }
+
+    .btn-calma {
+      background: #2e7d32;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 12px;
+      transition: background 0.3s;
+    }
+    
+    .btn-calma:active { background: #1b5e20; }
+
+    /* Estilos para el Ejercicio de Conexión 5-4-3-2-1 */
+    .grounding-item {
+      display: flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.6);
+      padding: 10px 14px;
+      border-radius: 12px;
+      margin-bottom: 8px;
+      font-size: 14px;
+      color: #33691e;
+      border-left: 4px solid #81c784;
+    }
+
+    .grounding-num {
+      font-size: 18px;
+      font-weight: 600;
+      margin-right: 12px;
+      color: #2e7d32;
+      min-width: 18px;
     }
   </style>
 </head>
 <body>
 
-  <!-- Elemento 3: Pantalla de Bienvenida Inicial -->
+  <!-- Elemento 3: Pantalla de Bienvenida -->
   <div id="splash-screen">
-    <img id="splash-logo" src="icon-512.png" alt="Cargando Estudio MJ">
+    <img id="splash-logo" src="icon-512.png" alt="Cargando">
   </div>
 
-  <!-- Elemento 2: Contenedor Principal (Vidrio Esmerilado) -->
+  <!-- Elemento 2: Tarjeta Glassmorphism Completa -->
   <div class="app-container">
-    <img class="main-logo" src="icon-512.png" alt="Mándala Estudio MJ">
+    <img class="main-logo" src="icon-512.png" alt="Mándala">
     <h1>Estudio MJ</h1>
-    <p>Espacio de armonía, diseño creativo y equilibrio visual.</p>
+    <div class="subtitle">Espacio de Bienestar y Calma</div>
+
+    <!-- BLOQUE 1: Respiración 4-7-8 -->
+    <div class="section-card">
+      <h2>🌬️ Respiración 4-7-8</h2>
+      <p style="font-size: 13px; color: #558b2f; margin-bottom: 8px;">Inhala por 4s, retén por 7s y exhala por 8s para relajar el sistema nervioso.</p>
+      
+      <div class="breathing-circle-container">
+        <div id="breath-circle" class="b-circle">Listo</div>
+        <button id="btn-breath" class="btn-calma" onclick="iniciarRespiracion()">Empezar</button>
+      </div>
+    </div>
+
+    <!-- BLOQUE 2: Conexión Sensorial 5-4-3-2-1 -->
+    <div class="section-card">
+      <h2>🧘‍♂️ Enfoque 5-4-3-2-1</h2>
+      <p style="font-size: 13px; color: #558b2f; margin-bottom: 12px;">Observa tu entorno para anclar tu mente en el momento presente:</p>
+      
+      <div class="grounding-item"><span class="grounding-num">5</span> Cosas que puedas ver a tu alrededor</div>
+      <div class="grounding-item"><span class="grounding-num">4</span> Cosas que puedas tocar físicamente</div>
+      <div class="grounding-item"><span class="grounding-num">3</span> Sonidos que logres escuchar</div>
+      <div class="grounding-item"><span class="grounding-num">2</span> Aromas que puedas percibir</div>
+      <div class="grounding-item"><span class="grounding-num">1</span> Sabor o cualidad positiva en ti</div>
+    </div>
   </div>
 
   <script>
     // CONTROL DE LA PANTALLA DE CARGA (SPLASH SCREEN)
     window.addEventListener('DOMContentLoaded', () => {
-      // Espera 1.5 segundos para que se aprecie el logo y luego retira la pantalla
       setTimeout(() => {
-        const splash = document.getElementById('splash-screen');
-        splash.classList.add('fade-out');
+        document.getElementById('splash-screen').classList.add('fade-out');
       }, 1500);
     });
 
-    // REGISTRO DEL SERVICE WORKER (Para asegurar que funcione Offline)
+    // LÓGICA DE LA INTERACCIÓN DE RESPIRACIÓN 4-7-8
+    let cicloRespiracion;
+    function iniciarRespiracion() {
+      const circulo = document.getElementById('breath-circle');
+      const boton = document.getElementById('btn-breath');
+      
+      if (boton.innerText === "Detener") {
+        clearInterval(cicloRespiracion);
+        circulo.style.transform = "scale(1)";
+        circulo.style.backgroundColor = "#c8e6c9";
+        circulo.innerText = "Listo";
+        boton.innerText = "Empezar";
+        return;
+      }
+
+      boton.innerText = "Detener";
+      
+      function ejecutarCiclo() {
+        // 1. Inhala (4 segundos): El círculo se expande
+        circulo.innerText = "Inhala...";
+        circulo.style.backgroundColor = "#a5d6a7";
+        circulo.style.transition = "transform 4s linear";
+        circulo.style.transform = "scale(1.4)";
+
+        // 2. Retén (7 segundos)
+        setTimeout(() => {
+          circulo.innerText = "Retén";
+          circulo.style.backgroundColor = "#fff59d";
+          // Se mantiene expandido
+        }, 4000);
+
+        // 3. Exhala (8 segundos): El círculo se encoge
+        setTimeout(() => {
+          circulo.innerText = "Exhala...";
+          circulo.style.backgroundColor = "#ffcc80";
+          circulo.style.transition = "transform 8s linear";
+          circulo.style.transform = "scale(1)";
+        }, 11000);
+      }
+
+      ejecutarCiclo();
+      cicloRespiracion = setInterval(ejecutarCiclo, 19000); // 4 + 7 + 8 = 19 segundos por ciclo
+    }
+
+    // REGISTRO DEL SERVICE WORKER (Modo Offline)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('sw.js')
